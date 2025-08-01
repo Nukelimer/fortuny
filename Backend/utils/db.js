@@ -4,20 +4,15 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const dbConnection = async () => {
-    const DB = process.env.DB
-    try {
-        await mongoose.connect(DB).then(() => {
-            
+        const DB = process.env.DB;
+        try {
+                await mongoose.connect(DB).then(() => {
+                        console.log(`Database has been connected successfully...`);
+                });
+        } catch (error) {
+                console.log(error);
+                setTimeout(dbConnection, 5000);
+        }
+};
 
-            console.log(`Database has been connected successfully...`);
-            
-        })
-    } catch (error) {
-        // console.log(error);
-        setTimeout(dbConnection, 5000 )
-    }
-
-}
-
-
-export default dbConnection
+export default dbConnection;
