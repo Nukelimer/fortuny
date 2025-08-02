@@ -4,18 +4,19 @@ const bannerSchema = mongoose.Schema(
         {
                 title: {
                         type: String,
-                        require: true
+                        required: true
                 },
                 subtitle: {
                         type: String,
-                        require: true
+                        required: true
                 },
                 img: {
                         type: String,
-                        require: true
+                        required: true
                 },
                 img: {
-                        require: true
+                        type: String,
+                        required: true
                 }
         },
         { timestamp: true }
