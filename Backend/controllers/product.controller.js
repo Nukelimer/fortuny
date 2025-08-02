@@ -68,7 +68,7 @@ const getAllProduct = asyncHandler(async function (req, res) {
         const querySearch = req.query.search;
         // const product = await Product.findById(req.params.id);
         let products;
-        if (!newQuery) {
+        if (newQuery) {
                 products = await Product.find().sort({ createdAt: -1 });
         } else if (queryCategory) {
                 products = await Product.find({ categories: { $in: [queryCategory] } });
@@ -82,6 +82,7 @@ const getAllProduct = asyncHandler(async function (req, res) {
                 });
         } else {
                 products = await Product.find().sort({ createdAt: -1 });
+                res.status(200).json(products);
         }
 });
 
@@ -97,17 +98,11 @@ const rateProduct = asyncHandler(async function (req, res) {
                         },
                         { new: true }
                 );
-               res.status(201).json("Product was rated successfully.");
-    } 
-        else {
-            
-            res.status(400);
-            throw new Error("Product rating was not successful.");
-            
-    }
+                res.status(201).json("Product was rated successfully.");
+        } else {
+                res.status(400);
+                throw new Error("Product rating was not successful.");
+        }
 });
 
-
-
-
-export {rateProduct, createProduct, getProduct , deleteProduct, getAllProduct, updateProduct}
+export { rateProduct, createProduct, getProduct, deleteProduct, getAllProduct, updateProduct };

@@ -10,17 +10,17 @@ const productSchema = mongoose.Schema(
                         require: true
                 },
 
-                whatinbox: {
+                whatinbox: { 
                         type: Array
                 },
 
                 defaultimage: {
                         type: String,
-                        required: true
+                        // required: true
                 },
                 hoverimage: {
                         type: String,
-                        required: true
+                        // required: true
                 },
                 video: {
                         type: String
