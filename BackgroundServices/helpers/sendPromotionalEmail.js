@@ -2,32 +2,35 @@ import ejs from "ejs";
 import dotenv from "dotenv";
 dotenv.config();
 import sendeMail from "../helpers/sendMail.js";
+
 import User from "../models/user.model.js";
 
-const sendWelcomeEmail = async () => {
-        const usersWithStatusOfZero = await User.find({ status: 0 });
+const sendPromotionalEmail = async () => {
+    const users = await User.find();
+    const products = await User.aggregate([{
+        $sample: {size:5}
+    }])
 
-        if (usersWithStatusOfZero.length > 0) {
-                for (let user of usersWithStatusOfZero) {
+        if (users.length > 0) {
+                for (let user of users) {
                         ejs.renderFile(
-                                "templates/welcome.ejs",
-                                { name: user.name },
+                                "templates/promotion.ejs",
+                            {
+                                
+                                products
+                            },
                                 async (error, data) => {
                                         let messageOptions = {
                                                 from: `Fake Fortuny LLC <${process.env.EMAIL}>`,
                                                 to: user.email,
-                                                subject: "Welcome to {ADD COMPANY NAME}",
+                                                subject: "YYou Might Be Intrested In These Products.",
                                                 html: data
                                         };
                                         try {
                                                 await sendeMail(messageOptions);
-                                                await User.findByIdAndUpdate(user._id, {
-                                                        $set: { status: 1 }
-                                                });
-                                        } catch (error) {
-
-                                            console.log(error);
                                             
+                                        } catch (error) {
+                                                console.log(error);
                                         }
                                 }
                         );
@@ -35,5 +38,4 @@ const sendWelcomeEmail = async () => {
         }
 };
 
-
-export default sendWelcomeEmail
+export default sendPromotionalEmail;

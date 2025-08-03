@@ -38,20 +38,20 @@ const userSchema = mongoose.Schema(
                 timestamps: true
         }
 );
-userSchema.pre("save", async function (next) {
-        if (!this.isModified("password")) {
-                next();
-        }
+// userSchema.pre("save", async function (next) {
+//         if (!this.isModified("password")) {
+//                 next();
+//         }
 
-        const salt = await bcrypt.genSalt(10);
-        this.password = bcrypt.hash(this.password, salt);
-});
+//         const salt = await bcrypt.genSalt(10);
+//         this.password = bcrypt.hash(this.password, salt);
+// });
 
-userSchema.methods.matchPassword = async function (enteredPassword) {
-        console.log("Stored password:", this.password, "gbewaaa");
-        console.log("Entered password:", enteredPassword);
-        return await bcrypt.compare(enteredPassword, this.password);
-};
+// userSchema.methods.matchPassword = async function (enteredPassword) {
+//         console.log("Stored password:", this.password, "gbewaaa");
+//         console.log("Entered password:", enteredPassword);
+//         return await bcrypt.compare(enteredPassword, this.password);
+// };
 const User = mongoose.model("User", userSchema);
 
 export default User;

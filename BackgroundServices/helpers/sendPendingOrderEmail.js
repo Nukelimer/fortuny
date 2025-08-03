@@ -2,32 +2,32 @@ import ejs from "ejs";
 import dotenv from "dotenv";
 dotenv.config();
 import sendeMail from "../helpers/sendMail.js";
-import User from "../models/user.model.js";
+import Order from "../models/order.model.js";
 
-const sendWelcomeEmail = async () => {
-        const usersWithStatusOfZero = await User.find({ status: 0 });
 
-        if (usersWithStatusOfZero.length > 0) {
-                for (let user of usersWithStatusOfZero) {
+const sendPendingOrderEmail = async () => {
+        const ordersWithStatusOfZero = await Order.find({ status: 0 });
+
+        if (ordersWithStatusOfZero.length > 0) {
+                for (let order of ordersWithStatusOfZero) {
                         ejs.renderFile(
-                                "templates/welcome.ejs",
-                                { name: user.name },
+                                "templates/pendingorder.ejs",
+                                { name: order.name , products: order.products},
                                 async (error, data) => {
                                         let messageOptions = {
                                                 from: `Fake Fortuny LLC <${process.env.EMAIL}>`,
-                                                to: user.email,
-                                                subject: "Welcome to {ADD COMPANY NAME}",
+                                                to: order.email,
+                                                subject: "Your Order Has Been Placed Successfully.",
                                                 html: data
                                         };
                                         try {
                                                 await sendeMail(messageOptions);
-                                                await User.findByIdAndUpdate(user._id, {
+                                            // BECAREFUL OF THE _ID vs ID
+                                            await Order.findByIdAndUpdate(order._id, {
                                                         $set: { status: 1 }
                                                 });
                                         } catch (error) {
-
-                                            console.log(error);
-                                            
+                                                console.log(error);
                                         }
                                 }
                         );
@@ -35,5 +35,4 @@ const sendWelcomeEmail = async () => {
         }
 };
 
-
-export default sendWelcomeEmail
+export default sendPendingOrderEmail;
