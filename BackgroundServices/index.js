@@ -2,6 +2,7 @@ import express from "express";
 import cron from "node-cron";
 import dotenv from "dotenv";
 import dbConnection from "./utils/db.js";
+import sendWelcomeEmail from "./EmailServices/sendWelcomeEmail.js";
 dotenv.config();
 const app = express();
 
@@ -12,7 +13,9 @@ const services = () => {
     cron.schedule("*/2 * * * * * *", () => {
             
         const a = new Date().toLocaleString()
-                console.log("running", a);
+        console.log("running", a);
+        
+        sendWelcomeEmail()
         });
 };
 
