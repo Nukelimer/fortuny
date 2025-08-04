@@ -12,7 +12,7 @@ const PORT = process.env.PORT;
 
 // SCHEDULING SERVICES EXECUTION
 const services = () => {
-    cron.schedule("3 * * * * *", () => {
+    cron.schedule("* * * * * *", () => {
             
         const a = new Date().toLocaleString()
         console.log("running", a);
@@ -41,3 +41,5 @@ app.listen(PORT, () => {
         console.log(`Server is up on... ${PORT}`);
         dbConnection();
 });
+
+
