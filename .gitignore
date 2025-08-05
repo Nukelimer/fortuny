@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+package-lock.json
+npm-debug.log
+
+# React (Frontend)
+Frontend/build/
+Frontend/.next/
+*.tsbuildinfo
+
+# Python (BackgroundServices)
+BackgroundServices/*.pyc
+BackgroundServices/__pycache__/
+
+# Environment variables
+.env
+.env.*
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+logs/
+
+# IDE files
+.vscode/
+.idea/
+.DS_Store
+
+# Sensitive files in Admin
+Admin/secrets/
+Admin/*.key
