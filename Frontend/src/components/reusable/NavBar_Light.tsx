@@ -21,7 +21,7 @@ function NavBar_Light() {
                                 />
                                 <Link to={"/"}>
                                         <img
-                                                src="../../../public/logo/fortuny.webp"
+                                                src="/logo/fortuny.webp"
                                                 alt=""
                                                 className="h-3"
                                         />
@@ -39,7 +39,7 @@ function NavBar_Light() {
                                 </div>
                                 <Link to={"/"}>
                                         <img
-                                                src="../../../public/logo/fortuny.webp"
+                                                src="/logo/fortuny.webp"
                                                 alt=""
                                                 className="h-3"
                                         />
