@@ -6,7 +6,7 @@ import CustomCard from "@/components/reusable/CustomCard";
 
 function Home() {
         return (
-                <>
+                <section className="bg-[#f8f8f8]">
                         <Hero page={"home"} />
                         <TextCaptionAndLink
                                 url={"pallazina-2025"}
@@ -67,7 +67,7 @@ function Home() {
                                 btn_text="Discover the collection"
                         />
 
-                        <div className="">
+                        <div className=" lg:flex  justify-between gap-56">
                                 <div className="px-12">
                                         {Array.from({ length: 1 }).map(() => {
                                                 return (
@@ -116,7 +116,23 @@ function Home() {
                                         />
                                 </div>
                         </div>
-                </>
+
+                        <div className=" p-6">
+                                <TextCaptionAndLink
+                                        url={"discover-bespoke"}
+                                        text={
+                                                "Create true originals with Fortuny Bespoke. A rare opportunity to join an elite circle of designers who demand nothing less than true originality and unparalleled craftsmanship."
+                                        }
+                                        img_Url="logo/bespoke_logo.webp"
+                                        img_styling="mx-auto h-10 !py-0"
+                                        inverted_heading={"Fortuny Bespoke"}
+                                        inverted_heading_styles="!pb-3 pt-14"
+                                        btn_text="Discover Bespoke"
+                                        text_style="font-[500] !py-6"
+                                        styling="!bg-[#FFFFFF] fill-white  !pt-0"
+                                />
+                        </div>
+                </section>
         );
 }
 

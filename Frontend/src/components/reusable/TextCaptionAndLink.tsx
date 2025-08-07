@@ -6,6 +6,8 @@ interface TextCaptionAndLinkProps {
         category?: string;
         url?: string;
         heading?: string;
+        inverted_heading?: string;
+        inverted_heading_styles?: string;
         heading_style?: string;
         text_style?: string;
         text?: string;
@@ -19,6 +21,8 @@ interface TextCaptionAndLinkProps {
 }
 
 function TextCaptionAndLink({
+    inverted_heading,
+      inverted_heading_styles,
         body,
         heading,
         text,
@@ -33,14 +37,20 @@ function TextCaptionAndLink({
         imgStyling,
         text_style
 }: TextCaptionAndLinkProps) {
-        console.log(url, text, imgUrl, heading, body, category, btn_text);
+        // console.log(url, text, imgUrl, heading, body, category, btn_text);
 
         return (
-                <div className={`py-12 text-center max-w-lg mx-auto ${styling}`}>
+                <div className={`py-12 text-center  max-w-lg mx-auto ${styling}`}>
                         <h2 className="uppercase text-[#919191] text-sm">{category}</h2>
+
                         <h3 className={`text-lg pb-16 ${heading_style}`}>{heading}</h3>
                         {img_Url && <img src={img_Url} className={img_styling} />}
                         {imgUrl && <img src={imgUrl} className={imgStyling} />}
+                        {inverted_heading && (
+                                <h3 className={`text-lg pb-16 ${inverted_heading_styles}`}>
+                                        {inverted_heading}
+                                </h3>
+                        )}
                         <p className={`text-sm text-center w-fit pb-16 ${text_style}`}>
                                 {" "}
                                 {text || body}
