@@ -206,7 +206,7 @@ function Footer() {
                         {" "}
                         Progetto finanziato con il POR FESR
                         2014-2020 Regione del{" "}
-                        <br className="lg:hidden" /> Veneto
+                        Veneto
                     </p>
                 </div>
                 <div className="flex flex-col w-full">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { LiaSearchSolid, LiaShoppingBagSolid } from "react-icons/lia";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Button from "./Button";
 import { MdOutlinePersonOutline } from "react-icons/md";
 
@@ -14,7 +14,7 @@ function NavBar_Light() {
         "Professional"]
 
 
-
+    const path = useLocation()
 
 
     return (
@@ -31,13 +31,17 @@ function NavBar_Light() {
                     }}
                     className={changeColor ? " cursor-pointer" : ""}
                 />
-                <Link to={"/"}>
+                {path.pathname != "/" ? <Link to={"/"}>
                     <img
                         src="/logo/fortuny.webp"
                         alt=""
                         className="h-3"
                     />
-                </Link>
+                </Link> : <img
+                    src="/logo/fortuny.webp"
+                    alt=""
+                    className="h-6"
+                />}
 
                 <div className=" flex items-center justify-center gap-3">
                     <LiaShoppingBagSolid className="" />
@@ -51,23 +55,27 @@ function NavBar_Light() {
                         headers.map((header) => {
 
                             if (header.includes("Shop") || header.includes("Textiles")) {
-                                return <Link to={`${header.toLowerCase()}`} className="hover:text-phc cursor-pointer">{header}</Link>
+                                return <Link key={header} to={`${header.toLowerCase()}`} className="hover:text-phc cursor-pointer">{header}</Link>
 
                             } else {
-                                return <Button styling="hover:text-phc cursor-pointer uppercase" >{header}</Button>
+                                return <Button key={header} styling="hover:text-phc cursor-pointer uppercase" >{header}</Button>
 
 
                             }
                         })
                     }
                 </div>
-                <Link to={"/"}>
+                {path.pathname != "/" ? <Link to={"/"}>
                     <img
                         src="/logo/fortuny.webp"
                         alt=""
                         className="h-6"
                     />
-                </Link>
+                </Link> : <img
+                    src="/logo/fortuny.webp"
+                    alt=""
+                    className="h-6"
+                />}
 
                 <div className=" flex items-center justify-center gap-3">
 
@@ -78,10 +86,10 @@ function NavBar_Light() {
                             headersSecondary.map((header) => {
 
                                 if (!header.includes("Contact")) {
-                                    return <Link to={`${header.toLowerCase()}`} className="hover:text-phc cursor-pointer text-[12px] uppercase  px-4">{header}</Link>
+                                    return <Link key={header} to={`${header.toLowerCase()}`} className="hover:text-phc cursor-pointer text-[12px] uppercase  px-4">{header}</Link>
 
                                 } else {
-                                    return <Button styling="hover:text-phc cursor-pointer uppercase text-[12px]" >{header}</Button>
+                                    return <Button key={header} styling="hover:text-phc cursor-pointer uppercase text-[12px]" >{header}</Button>
 
 
                                 }
@@ -91,7 +99,7 @@ function NavBar_Light() {
 
                     </div>
 
-                    <MdOutlinePersonOutline className="hover:text-phc  cursor-pointer"/>
+                    <MdOutlinePersonOutline className="hover:text-phc  cursor-pointer" />
                     <LiaShoppingBagSolid className="hover:text-phc  cursor-pointer" />
                     <LiaSearchSolid className="mt-[2px] hover:text-phc  cursor-pointer" />
                 </div>

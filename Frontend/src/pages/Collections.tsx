@@ -1,7 +1,9 @@
 import React from 'react'
 
 function Collections() {
-  return (
+    return (
+      
+        
     <div>Collections</div>
   )
 }

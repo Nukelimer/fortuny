@@ -4,12 +4,17 @@ import "./index.css";
 import App from "./App.tsx";
 import { BrowserRouter } from "react-router";
 
+
 createRoot(document.getElementById("root")!).render(
-        <StrictMode>
-                <BrowserRouter>
-                        <div className="primary-font-reg">
-                                <App />
-                        </div>
-                </BrowserRouter>
-        </StrictMode>
+    <StrictMode>
+    
+
+
+        <BrowserRouter>
+            <div className="primary-font-reg">
+                <App />
+            </div>
+        </BrowserRouter>
+
+    </StrictMode>
 );
