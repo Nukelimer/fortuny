@@ -5,7 +5,7 @@ import useEmblaCarousel, {
 import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "./button"
+import { Button } from "@/components/ui/button"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -183,11 +183,11 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-8 rounded",
+        "absolute size-8 rounded-full",
         orientation === "horizontal"
-          ? "top-1/2 left-2 -translate-y-1/2"
-          : "-top left-1/2 -translate-x-1/2 rotate-90",
-        className , !canScrollPrev && "hidden" 
+          ? "top-1/2 -left-12 -translate-y-1/2"
+          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+        className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
@@ -208,26 +208,25 @@ function CarouselNext({
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
-          <Button
-                  data-slot="carousel-next"
-                  variant={variant}
-                  size={size}
-                  className={cn(
-                          "absolute size-8 rounded",
-                          orientation === "horizontal"
-                                  ? "top-1/2 right-2 -translate-y-1/2"
-                                  : "-bottom-0 left-1/2 -translate-x-1/2 rotate-90",
-                          className,
-                          !canScrollNext && "hidden"
-                  )}
-                  disabled={!canScrollNext}
-                  onClick={scrollNext}
-                  {...props}
-          >
-                  <ArrowRight />
-                  <span className="sr-only">Next slide</span>
-          </Button>
-  );
+    <Button
+      data-slot="carousel-next"
+      variant={variant}
+      size={size}
+      className={cn(
+        "absolute size-8 rounded-full",
+        orientation === "horizontal"
+          ? "top-1/2 -right-12 -translate-y-1/2"
+          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+        className
+      )}
+      disabled={!canScrollNext}
+      onClick={scrollNext}
+      {...props}
+    >
+      <ArrowRight />
+      <span className="sr-only">Next slide</span>
+    </Button>
+  )
 }
 
 export {

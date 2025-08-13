@@ -21,6 +21,7 @@ interface TextCaptionAndLinkProps {
     img_styling?: string;
     imgStyling?: string;
     subheading_style?: string
+    isShowBtn?: boolean
 }
 
 function TextCaptionAndLink({
@@ -40,7 +41,8 @@ function TextCaptionAndLink({
     heading_style,
     imgStyling,
     text_style,
-    subheading_style
+    subheading_style,
+    isShowBtn
 }: TextCaptionAndLinkProps) {
     // console.log(url, text, imgUrl, heading, body, category, btn_text);
 
@@ -68,11 +70,14 @@ function TextCaptionAndLink({
                 )
             }
 
-            <Button
-                styling={` bg-btn-primary text-white hover:text-phc w-fit mx-auto py-2 px-12 rounded text-sm text-5xl uppercase `}
-            >
-                {url ? <Link to={url}>{btn_text}</Link> : btn_text}
-            </Button>
+            {
+               !isShowBtn && 
+                <Button
+                    styling={` bg-btn-primary text-white hover:text-phc w-fit mx-auto py-2 px-12 rounded text-sm text-5xl uppercase `}
+                >
+                    {url ? <Link to={url}>{btn_text}</Link> : btn_text}
+                </Button>
+           }
         </div>
     );
 }

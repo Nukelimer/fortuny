@@ -126,12 +126,13 @@ function Home() {
                     text={
                         "Create true originals with Fortuny Bespoke. A rare opportunity to join an elite circle of designers who demand nothing less than true originality and unparalleled craftsmanship."
                     }
+                    
                     img_Url="logo/bespoke_logo.webp"
                     img_styling="mx-auto h-10 !py-0"
                     inverted_heading={"Fortuny Bespoke"}
                     inverted_heading_styles="!pb-3 pt-14"
                     btn_text="Discover Bespoke"
-                    text_style="font-[500] !py-6"
+                    text_style="font-[500] !py-6 px-6"
                     styling="!bg-[#FFFFFF] fill-white  !pt-0"
                 />
             </div>

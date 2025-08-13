@@ -14,6 +14,7 @@ function Layout() {
         '/', // Homepage
         '/textiles',
         '/shop',
+        "palazzina-2025",
         '/collections',
         '/stories',
         '/contact',
