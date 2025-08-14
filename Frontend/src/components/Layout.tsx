@@ -16,6 +16,7 @@ function Layout() {
         '/shop',
         "palazzina-2025",
         '/collections',
+        '/collections/armonia',
         '/stories',
         '/contact',
         '/history',
@@ -39,6 +40,8 @@ function Layout() {
     const isValidRoute = routePatterns.some((pattern) =>
         matchPath({ path: pattern, end: true }, location.pathname)
     );
+
+  
 
     // Check if the current path is the homepage
     const isHomePage = matchPath({ path: '/', end: true }, location.pathname);

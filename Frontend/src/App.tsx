@@ -7,6 +7,7 @@ import Collections from "./pages/Collections";
 import ErrorPage from "./error/Error";
 import Palazzina2025 from "./pages/Palazzina-2025";
 import TitleUpdater from "./components/TitleUpdater";
+import Armonia from "./pages/Collections/Armonia";
 
 export default function App() {
     return (
@@ -19,6 +20,8 @@ export default function App() {
                 <Route path="palazzina-2025" element={<Palazzina2025 />} />
                 <Route path="textiles" element={<Textiles />} />
                 <Route path="collections" element={<Collections />} />
+                <Route path="collections/armonia" element={<Armonia />} />
+                  
                 <Route path="*" element={<ErrorPage />} />
             </Route>
         </Routes></>
