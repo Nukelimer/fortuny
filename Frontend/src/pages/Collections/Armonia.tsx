@@ -105,7 +105,7 @@ Merging rhythm, structure, and Chahan’s signature palette of natural materials
                 
                 {cardData.map(({ description, image, link, title }) => {
                     return (
-                        <div className="px-12">
+                        <div className="px-12" key={title}>
                             <CustomCard imgUrl={image} styling=" " />
                             <h2 className=" text-xl md:text-2xl text-center pt-5 pb-8">{title}</h2>
                             <p className="text-xs text-center py-4">{description}</p>

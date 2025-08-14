@@ -12,7 +12,7 @@ function Hero({showInfo}:HeroProps) {
     console.log(path, );
 
     return (
-        <section className="">
+        <section className="min-h-screen">
             { (
                 <div className="pointer-events-none relative flex justify-center items-end">
                     <VideoPlayer src="/hero_video.mp4" />

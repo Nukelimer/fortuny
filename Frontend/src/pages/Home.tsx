@@ -12,7 +12,7 @@ function Home() {
             <SplashImage />
             <Hero />
             <TextCaptionAndLink
-                url={"pallazina-2025"}
+                url={"palazzina-2025"}
                 heading={"Experience the art of Venetian living"}
                 text={
                     "Fortuny presents FORTUNY + CHAHAN, a special collaboration for the design and art community that transformed the former house of Countess Gozzi adjacent to the iconic Fortuny Factory into an innovative store that blends contemporary artwork and furniture within the historical setting."

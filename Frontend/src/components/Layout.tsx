@@ -4,6 +4,7 @@ import NavBar_Light from './reusable/NavBar_Light';
 import Footer from './Footer';
 import Loading from './Loading';
 import { Outlet } from 'react-router-dom';
+import NavBar_Dark from './reusable/NavBar_Dark';
 
 function Layout() {
     const location = useLocation();
@@ -17,6 +18,7 @@ function Layout() {
         "palazzina-2025",
         '/collections',
         '/collections/armonia',
+        '/collections/fortuny-home',
         '/stories',
         '/contact',
         '/history',
@@ -42,6 +44,7 @@ function Layout() {
     );
 
   
+console.log(location.pathname);
 
     // Check if the current path is the homepage
     const isHomePage = matchPath({ path: '/', end: true }, location.pathname);
@@ -65,7 +68,7 @@ function Layout() {
             {isLoading && !isHomePage && <Loading />}
 
             <nav className="flex mx-auto w-full justify-center">
-                <NavBar_Light />
+                {location.pathname == "/collections/armonia" || location.pathname == "/palazzina-2025" ? <NavBar_Dark />:<NavBar_Light/> }
             </nav>
 
             <main>
