@@ -15,6 +15,7 @@ const TitleUpdater: React.FC = () => {
             '/textiles': 'Textiles | Fortuny',
             '/collections': 'Collections | Fortuny',
             '/collections/armonia': 'Armonia  | Collection | Fortuny',
+            '/collections/fortuny-home': 'Collection Home  | Collection | Fortuny',
 
 
         }

@@ -68,7 +68,7 @@ console.log(location.pathname);
             {isLoading && !isHomePage && <Loading />}
 
             <nav className="flex mx-auto w-full justify-center">
-                {location.pathname == "/collections/armonia" || location.pathname == "/palazzina-2025" ? <NavBar_Dark />:<NavBar_Light/> }
+                {location.pathname == "/collections/armonia" || location.pathname == "/palazzina-2025" || location.pathname == "/collections/fortuny-home" ? <NavBar_Dark />:<NavBar_Light/> }
             </nav>
 
             <main>

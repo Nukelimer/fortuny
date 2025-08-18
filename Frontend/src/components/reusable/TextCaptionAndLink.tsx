@@ -19,6 +19,9 @@ interface TextCaptionAndLinkProps {
     imgUrl?: string;
     styling?: string;
     img_styling?: string;
+
+    btm_heading?: string;
+    btm_heading_styles?: string;
     imgStyling?: string;
     subheading_style?: string
     isShowBtn?: boolean
@@ -42,7 +45,9 @@ function TextCaptionAndLink({
     imgStyling,
     text_style,
     subheading_style,
-    isShowBtn
+    isShowBtn,
+    btm_heading,
+     btm_heading_styles,
 }: TextCaptionAndLinkProps) {
     // console.log(url, text, imgUrl, heading, body, category, btn_text);
 
@@ -61,6 +66,11 @@ function TextCaptionAndLink({
                     {inverted_heading}
                 </h3>
             )}
+            {btm_heading && (
+                <h3 className={`text-lg pb- ${btm_heading_styles}`}>
+                    {btm_heading}
+                </h3>
+            )}
             {
                 (text || body) && (
                     <p
@@ -70,6 +80,7 @@ function TextCaptionAndLink({
                 )
             }
 
+            <div className=""></div>
             {
                !isShowBtn && 
                 <Button
